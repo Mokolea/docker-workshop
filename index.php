@@ -32,5 +32,8 @@
   ?>
 
   <p>MySQL version: <?= $row["version"] ?></p>
+
+  <h2>Environment variables:</h2>
+  <pre><?php print_r($_ENV); ?></pre>
 </body>
 </html>
