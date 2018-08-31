@@ -1,0 +1,39 @@
+version: '3.6'
+services:
+  app:
+    image: wordpress:4.9-apache
+    ports:
+    - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD_FILE: /run/secrets/db-password
+      WORDPRESS_DB_NAME: wordpress
+    networks:
+    - frontend
+    - backend
+    secrets:
+    - db-password
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD_FILE: /run/secrets/db-password
+    volumes:
+    - db-data:/var/lib/mysql
+    networks:
+    - backend
+    secrets:
+    - db-password
+
+volumes:
+  db-data:
+secrets:
+  db-password:
+    file: mysql-pw.txt
+networks:
+  frontend:
+  backend:
