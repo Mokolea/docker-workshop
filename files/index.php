@@ -36,5 +36,14 @@
   <h2>Environment variables:</h2>
   <pre><?php print_r($_ENV); ?></pre>
   <p>Served by POD: <?php print(getenv('HOSTNAME')) ?></p>
+  <?php if ($_SERVER['REQUEST_URI'] == '/hash') {
+    $result = "";
+
+    for ($x = 0; $x <= 10; $x++) {
+      $result .= password_hash('workshop', PASSWORD_BCRYPT, [ 'cost' => 100 ]) + '</br>'
+    }
+  }
+  ?>
+  <p><?php print($result) ?></p>
 </body>
 </html>
