@@ -40,7 +40,7 @@
     $result = "";
 
     for ($x = 0; $x <= 10; $x++) {
-      $result .= password_hash('workshop', PASSWORD_BCRYPT, [ 'cost' => 100 ]) + '</br>'
+      $result .= password_hash('workshop', PASSWORD_BCRYPT, [ 'cost' => 100 ]) + '</br>';
     }
   }
   ?>
