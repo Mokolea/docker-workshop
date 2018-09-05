@@ -37,14 +37,13 @@
   <pre><?php print_r($_ENV); ?></pre>
   <p>Served by POD: <?php print(getenv('HOSTNAME')) ?></p>
   <p>Request URL <?php print($_SERVER['REQUEST_URI']) ?></p>
-  <?php if ($_SERVER['REQUEST_URI'] == '/hash') {
+  <?php if ($_SERVER['REQUEST_URI'] == '/hash'):
     $result = "";
 
     for ($x = 0; $x <= 10; $x++) {
       $result .= password_hash('workshop', PASSWORD_BCRYPT, [ 'cost' => 100 ]) + '</br>';
     }
-  }
-  ?>
-  <p><?php print($result) ?></p>
+  ?><p><?php echo $result ?></p>
+  <?php endif; ?>
 </body>
 </html>
