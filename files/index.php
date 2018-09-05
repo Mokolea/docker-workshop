@@ -36,10 +36,10 @@
   <h2>Environment variables:</h2>
   <pre><?php print_r($_ENV); ?></pre>
   <p>Served by POD: <?php print(getenv('HOSTNAME')) ?></p>
-  <p>Request URL <?php print($_SERVER['REQUEST_URI']) ?></p>
   <?php if ($_SERVER['REQUEST_URI'] == '/hash'):
+    ?><p>Your hashes:</p><?php
     for ($x = 0; $x <= 3; $x++): ?>
-      <p><?php echo password_hash('workshop', PASSWORD_BCRYPT) ?></p>
+      <p><?php echo password_hash('workshop', PASSWORD_BCRYPT, [ 'cost' => 12 ]) ?></p>
     <?php endfor; endif; ?>
 </body>
 </html>
