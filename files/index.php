@@ -38,12 +38,8 @@
   <p>Served by POD: <?php print(getenv('HOSTNAME')) ?></p>
   <p>Request URL <?php print($_SERVER['REQUEST_URI']) ?></p>
   <?php if ($_SERVER['REQUEST_URI'] == '/hash'):
-    $result = "";
-
-    for ($x = 0; $x <= 3; $x++) {
-      $result .= password_hash('workshop', PASSWORD_BCRYPT, [ 'cost' => 15 ]) + '</br>';
-    }
-  ?><p><?php echo $result ?></p>
-  <?php endif; ?>
+    for ($x = 0; $x <= 3; $x++): ?>
+      <p><?php echo password_hash('workshop', PASSWORD_BCRYPT) ?></p>
+    <?php endfor; endif; ?>
 </body>
 </html>
