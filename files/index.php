@@ -35,5 +35,6 @@
 
   <h2>Environment variables:</h2>
   <pre><?php print_r($_ENV); ?></pre>
+  <p>Served by POD: <?php print(getenv('HOSTNAME') ?></p>
 </body>
 </html>
