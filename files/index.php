@@ -40,7 +40,7 @@
   <?php if ($_SERVER['REQUEST_URI'] == '/hash'):
     $result = "";
 
-    for ($x = 0; $x <= 10; $x++) {
+    for ($x = 0; $x <= 3; $x++) {
       $result .= password_hash('workshop', PASSWORD_BCRYPT, [ 'cost' => 15 ]) + '</br>';
     }
   ?><p><?php echo $result ?></p>
