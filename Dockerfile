@@ -5,6 +5,7 @@ ENV MYSQL_HOST=mysql \
     MYSQL_DATABASE=workshop
 
 RUN docker-php-ext-install mysqli
+RUN a2enmod rewrite
 
 RUN chmod g+w /var/run/apache2 && \
     chgrp root /var/run/apache2

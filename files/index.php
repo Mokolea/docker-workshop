@@ -36,6 +36,7 @@
   <h2>Environment variables:</h2>
   <pre><?php print_r($_ENV); ?></pre>
   <p>Served by POD: <?php print(getenv('HOSTNAME')) ?></p>
+  <p>Request URL <?php print($_SERVER['REQUEST_URI']) ?></p>
   <?php if ($_SERVER['REQUEST_URI'] == '/hash') {
     $result = "";
 
