@@ -11,6 +11,12 @@
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
 
+        # send whole URL to the php app
+        RewriteEngine On
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^(.*)$ index.php/$1 [PT,L,QSA]
+
         # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
         # error, crit, alert, emerg.
         # It is also possible to configure the loglevel for particular
