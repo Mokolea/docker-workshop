@@ -1,7 +1,7 @@
-version: '3.6'
+version: '3.3'
 services:
   app:
-    image: wordpress:4.9-apache
+    image: wordpress:4.9
     ports:
     - 8080:80
     environment:
